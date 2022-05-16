@@ -96,28 +96,7 @@ export const getAllJsonData = (value) => {
     fields: fields.join(','),
   }
 
-  let one = `https://restcountries.com/v2/alpha/${value}`
-  let two = `https://restcountries.com/v2/capital/${value}`
-  let three = `https://restcountries.com/v2/region/${value}`
-
-  const requestOne = axios.get(one)
-  const requestTwo = axios.get(two)
-  const requestThree = axios.get(three)
-
-  axios
-    .all([requestOne, requestTwo, requestThree])
-    .then(
-      axios.spread((...responses) => {
-        const responseOne = responses[0]
-        const responseTwo = responses[1]
-        const responesThree = responses[2]
-
-        // use/access the results
-        console.log(responseOne, responseTwo, responesThree)
-      })
-    )
-    .catch((errors) => {
-      // react on errors.
-      console.error(errors)
-    })
+  return client
+    .get(`/name/${value}`, { params: queryParams })
+    .then((response) => response.data)
 }

@@ -38,14 +38,14 @@ function Home() {
             id={'capital'}
             onChange={onInputChanged}
             value={searchCountryName}
-            placeholder="Search for capital..."
+            placeholder="Search capital..."
           />
           <Form.Control
             className={'search_input'}
             id={'allJson'}
             onChange={onInputChangedAll}
             value={searchAllJson}
-            placeholder="Search anything..."
+            placeholder="Search name..."
           />
         </div>
         {isLoading ? (
